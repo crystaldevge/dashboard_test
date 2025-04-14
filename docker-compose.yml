@@ -1,0 +1,14 @@
+
+
+services:
+  container:
+    build: .
+    image: archilitav/container:latest
+    ports:
+      - "3005:3005"
+    environment:
+      - NODE_ENV=production
+    restart: always
+    command: ["npm", "start"]
+    
+    
