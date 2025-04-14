@@ -1,14 +1,13 @@
-
-
 services:
-  container:
-    build: .
-    image: archilitav/container:latest
+  dashboard_test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: archilitav/dashboard_test:latest
+    container_name: dashboard_test
+    working_dir: /app
+    volumes:
+      - .:/app
     ports:
-      - "3005:3005"
-    environment:
-      - NODE_ENV=production
-    restart: always
-    command: ["npm", "start"]
-    
-    
+      - "3005:30035"  
+    command: sh -c "npm install && npm start"
