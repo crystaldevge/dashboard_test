@@ -9,5 +9,5 @@ services:
     volumes:
       - .:/app
     ports:
-      - "3005:30035"  
-    command: sh -c "npm install && npm start"
+      - "3005:3005"  
+

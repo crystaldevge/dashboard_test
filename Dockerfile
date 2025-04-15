@@ -1,25 +1,30 @@
-# Dockerfile
-
 # Base image
-FROM node:18-alpine
+FROM node:18-alpine AS build
 
-# Working directory inside the container
 WORKDIR /app
 
-# Copy files
+# Copy dependencies and install
 COPY package*.json ./
 RUN npm install
 
+# Copy source code
 COPY . .
 
 # Build the React app
 RUN npm run build
 
-# Serve with a static file server
-RUN npm install -g start
+# Serve with nginx (production static files)
+FROM nginx:alpine
 
-# expose port
+# Remove default nginx static files
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy built app
+COPY --from=build /app/build /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port (nginx default)
 EXPOSE 3005
 
-# default command
-CMD ["npm", "start", "build"]
+CMD ["nginx", "-g", "daemon off;"]
