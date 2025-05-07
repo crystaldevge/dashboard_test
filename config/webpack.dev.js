@@ -1,19 +1,40 @@
 
-const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
+const { merge } = require('webpack-merge');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const commonConfig = require('./webpack.common');
+const packageJson = require('../package.json');
+const path = require('path');
 
-module.exports = {
+
+const devConfig = {
     mode: 'development',
-    devServer: {
-        port: 3000,
+    devtool: 'source-map',
+    output: {
+        publicPath: 'http://localhost:3005/',
     },
+    devServer: {
+        port: 3005,
+        historyApiFallback: {
+            historyApiFallback: true,
+        },
+        static: {
+            directory: path.join(__dirname, 'build'), // ან build
+        },
+  
+    },
+    
     plugins: [
         new ModuleFederationPlugin({
             name: 'dashboard_test',
             remotes: {
-                marketing: 'reacttest@http://localhost:3001/remoteEntry.js',
-                dashboard: 'angulartest@http://localhost:3002/remoteEntry.js',
-                profile: 'vuetest@http://localhost:3003/remoteEntry.js',
+                react_test: 'react_test@http://localhost:3001/remoteEntry.js',
+                angular_test: 'angular_test@http://localhost:4200/remoteEntry.js',
+                vuetest: 'vuetest@http://localhost:4201/remoteEntry.js',
             },
+            shared: packageJson.dependencies,
         })
     ],
 };
+
+
+module.exports = merge(commonConfig, devConfig);

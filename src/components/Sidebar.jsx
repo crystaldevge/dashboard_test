@@ -9,6 +9,7 @@ const Sidebar = () => {
   ];
 
   return (
+    // <h2>Hello</h2>
     <aside className="sidebar">
       <h2 className="sidebar-title">MyApp</h2>
       <nav className="sidebar-menu">

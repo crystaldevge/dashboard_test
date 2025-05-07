@@ -10,13 +10,13 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} 
 
 
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: #1f2937; /* dark gray */
+  background-color: #1f2937; 
   color: white;
   padding: 20px;
   box-sizing: border-box;
@@ -49,9 +49,13 @@ code {
 }
 
 .sidebar-item:hover {
-  background-color: #374151; /* lighter gray on hover */
+  background-color: #374151; 
 }
 
 .sidebar-icon {
   font-size: 18px;
+}
+
+.flex {
+  display: flex;
 }
