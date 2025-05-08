@@ -8,8 +8,10 @@ const path = require('path');
 
 const devConfig = {
     mode: 'development',
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     output: {
+        path: path.resolve(__dirname, '../build'),
+        filename: 'main.[contenthash].js',
         publicPath: 'http://localhost:3005/',
     },
     devServer: {
@@ -18,18 +20,26 @@ const devConfig = {
             historyApiFallback: true,
         },
         static: {
-            directory: path.join(__dirname, 'build'), // ან build
+            directory: path.resolve(__dirname, 'build'), // ან build
         },
-  
+        open: true,
+        hot: true,
+        liveReload: true,
+        compress: true,
     },
-    
+
     plugins: [
         new ModuleFederationPlugin({
             name: 'dashboard_test',
+            filename: 'remoteEntry.js',
             remotes: {
                 react_test: 'react_test@http://localhost:3001/remoteEntry.js',
                 angular_test: 'angular_test@http://localhost:4200/remoteEntry.js',
                 vuetest: 'vuetest@http://localhost:4201/remoteEntry.js',
+            },
+            exposes: {
+                './Message': './src/components/Message.jsx',
+                './MessageElement': './src/components/MessageElement.js',
             },
             shared: packageJson.dependencies,
         })

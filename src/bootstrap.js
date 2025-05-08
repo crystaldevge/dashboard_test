@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import './components/MessageElemnt';
 
 const mount = (el) => {
     const root = ReactDOM.createRoot(el);
@@ -10,7 +11,7 @@ const mount = (el) => {
   
   // Only for standalone
   if (process.env.NODE_ENV  === 'development') {
-    const el = document.getElementById('root');
+    const el = document.getElementById('dashboard-root');
     if (el) mount(el);
   }
   
