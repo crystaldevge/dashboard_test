@@ -20,7 +20,7 @@ const devConfig = {
             historyApiFallback: true,
         },
         static: {
-            directory: path.resolve(__dirname, 'build'), // ან build
+            directory: path.resolve(__dirname, '../build'), // ან build
         },
         open: true,
         hot: true,
@@ -35,11 +35,11 @@ const devConfig = {
             remotes: {
                 react_test: 'react_test@http://localhost:3001/remoteEntry.js',
                 angular_test: 'angular_test@http://localhost:4200/remoteEntry.js',
-                vuetest: 'vuetest@http://localhost:4201/remoteEntry.js',
+                vue_test: 'vue_test@http://localhost:4201/remoteEntry.js',
             },
             exposes: {
-                './Message': './src/components/Message.jsx',
-                './MessageElement': './src/components/MessageElement.js',
+                './Message': './src/components/Message',
+                './MessageElement': './src/components/MessageElement',
             },
             shared: packageJson.dependencies,
         })

@@ -1,4 +1,4 @@
-import { mount } from 'vuetest/VueTestApp';
+import { mount } from 'vue_test/VueTestApp';
 import React, { useRef, useEffect } from 'react';
 
 

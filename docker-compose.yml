@@ -1,16 +1,33 @@
+
 services:
   dashboard_test:
     build:
       context: .
       dockerfile: Dockerfile
-    image: archilitav/dashboard_test:latest
     container_name: dashboard_test
-    working_dir: /app
-    volumes:
-      - .:/app
-      - /app/node_modules
     ports:
-      - "3005:3005"  
-    environment:
-      - NODE_ENV=development
+      - "3005:3005"
 
+  react_test:
+    build:
+      context: ../react_test
+      dockerfile: Dockerfile
+    container_name: react_test
+    ports:
+      - "3001:3001"
+
+  angular_test:
+    build:
+      context: ../angular_test
+      dockerfile: Dockerfile
+    container_name: angular_test
+    ports:
+      - "4200:80"
+
+  vue_test:
+    build:
+      context: ../vue_test
+      dockerfile: Dockerfile
+    container_name: vue_test
+    ports:
+      - "4201:4201"

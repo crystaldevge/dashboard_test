@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Message from './Message'; // შენი React კომპონენტი
 
 class MessageElement extends HTMLElement {
+  
   connectedCallback() {
     const props = {
       message: this.getAttribute('message') || 'Default message',

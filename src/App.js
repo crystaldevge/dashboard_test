@@ -1,6 +1,7 @@
 import React from "react";
 import { AppProvider } from "./context";
 import Main from "./components/Main";
+import  './components/MessageElement'
 // import { mount } from 'react_test/ReactTestApp';
 // console.log(mount);
 
