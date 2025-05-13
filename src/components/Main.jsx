@@ -14,7 +14,7 @@ const Main = () => {
         <div className="flex">
             <Sidebar />
             <main className="flex-1 p-4">
-                <h1 style={{color: 'red'}}>Welcome to the dashboard</h1>
+                <h1 style={{color: 'red'}}>Dashboard App</h1>
                 {reactApp && <ReactTestLazy />}
                 {angularApp && <AngularTestLazy />}
                 {vueApp && <VueTestLazy />}
