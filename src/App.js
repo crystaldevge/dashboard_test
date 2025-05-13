@@ -2,15 +2,20 @@ import React from "react";
 import { AppProvider } from "./context";
 import Main from "./components/Main";
 import  './components/MessageElement'
-// import { mount } from 'react_test/ReactTestApp';
-// console.log(mount);
+import { callGithubUser } from './components/callApi';
 
-// const ReactTestLazy = lazy(() => import('react_test/ReactTestApp'));
 
 
 
 function App() {
- 
+  
+ callGithubUser()
+        .then(data => {
+            console.log('Data from API:', data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 
   return (
     <div>

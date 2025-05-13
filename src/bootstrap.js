@@ -7,6 +7,7 @@ import App from './App';
 const mount = (el) => {
     const root = ReactDOM.createRoot(el);
     root.render(<App />);
+    
   };
   
   // Only for standalone
