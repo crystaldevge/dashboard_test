@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: archilitav/dashboard_test:latest
     container_name: dashboard_test
     ports:
       - "3005:3005"
@@ -12,6 +13,7 @@ services:
     build:
       context: ../react_test
       dockerfile: Dockerfile
+    image: archilitav/react_test:latest
     container_name: react_test
     ports:
       - "3001:3001"
@@ -20,6 +22,7 @@ services:
     build:
       context: ../angular_test
       dockerfile: Dockerfile
+    image: archilitav/angular_test:latest
     container_name: angular_test
     ports:
       - "4200:80"
@@ -28,6 +31,7 @@ services:
     build:
       context: ../vue_test
       dockerfile: Dockerfile
+    image: archilitav/vue_test:latest
     container_name: vue_test
     ports:
       - "4201:4201"

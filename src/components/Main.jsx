@@ -8,7 +8,7 @@ const VueTestLazy = lazy(() => import("./VueTestApp"));
 
 const Main = () => {
     const { reactApp, angularApp, vueApp } = useContext(AppContext);
-    console.log('React App:', reactApp);
+
     
     return (
         <div className="flex">

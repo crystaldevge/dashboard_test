@@ -40,6 +40,8 @@ const devConfig = {
             exposes: {
                 './Message': './src/components/Message',
                 './MessageElement': './src/components/MessageElement',
+                './callGithubUser': './src/components/callApi',
+                
             },
             shared: packageJson.dependencies,
         })
