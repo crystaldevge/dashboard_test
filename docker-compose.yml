@@ -35,3 +35,12 @@ services:
     container_name: vue_test
     ports:
       - "4201:4201"
+
+  native_test:
+    build:
+      context: ../native_test
+      dockerfile: Dockerfile
+    image: archilitav/native_test:latest
+    container_name: native_test
+    ports:
+      - "8080:8080"
